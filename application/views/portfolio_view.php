@@ -11,24 +11,17 @@
 
 
 
-    
+
 
     <?php 
-    if (array_key_exists('user_email', $_SESSION)) {
-        echo 'значення user_name знайдено';
-    } else {
-        echo 'NO!';
-    }
-    if ($_SESSION['user_email'] !== false):
-        
+    if (array_key_exists('user_email', $_SESSION) && !empty($_SESSION['user_email'])){
     ?>
-
-    <label for="email">Email:</label>
-    <input type="hidden" id="email" name="email" value="<?php echo $_SESSION['user_email'] ?>" placeholder="yourEmail@gmail.com">
-
-    <?php else: ?>
+        <label for="email">Email:</label>
+        <input type="hidden" id="email" name="email" value="<?php echo $_SESSION['user_email'] ?>" placeholder="yourEmail@gmail.com">
+    
+    <?php } else{ ?>
         <input type="email" id="email" name="email" value="" placeholder="yourEmail@gmail.com">
-        <?php endif; ?>
+        <?php }; ?>
 
     <?php
     if(array_key_exists('user_email', $_SESSION) && !empty($_SESSION['user_email'])){
@@ -133,26 +126,23 @@
     echo 'ID - ' . $row['id'] . ' ' . $row['email'] . ' - ';
     echo '<span style="display:block" class="new-comment"> '.$row['comment'] .'</span>';
    
-   if ($_SESSION['user_email'] !== false) {
+        if (array_key_exists('user_email', $_SESSION) && !empty($_SESSION['user_email'])){
     
-    if ($_SESSION['user_email'] === $row['email']){
-        echo '<button class="btn-del" style="display:block" onclick="deleteComment(' . $row['id'] . ')" type="button">Delete</button>'; 
-        echo '<button class="showEdit" style="display:block" onclick="showEdit(' . $row['id'] . ')">Edit</button>';
-        echo '<div style="display:none" class="div-update-comment-">';
-        echo '<input  type="text" class="update-comment-" value="' . htmlspecialchars($row['comment']) . '">';
-        echo '<button class="btn-save" onclick="updateComment(' . $row['id'] . ')" type="button" >Save</button>';
-        echo '<button class="btn-cancel" onclick="hideEdit(' . $row['id'] . ')">Cancel</button>';
-        echo '</div>';
+            if ($_SESSION['user_email'] === $row['email']){
+            echo '<button class="btn-del" style="display:block" onclick="deleteComment(' . $row['id'] . ')" type="button">Delete</button>'; 
+            echo '<button class="showEdit" style="display:block" onclick="showEdit(' . $row['id'] . ')">Edit</button>';
+            echo '<div style="display:none" class="div-update-comment-">';
+            echo '<input  type="text" class="update-comment-" value="' . htmlspecialchars($row['comment']) . '">';
+            echo '<button class="btn-save" onclick="updateComment(' . $row['id'] . ')" type="button" >Save</button>';
+            echo '<button class="btn-cancel" onclick="hideEdit(' . $row['id'] . ')">Cancel</button>';
+            echo '</div>';
+            }
+        } else {
+        echo 'Please <a href="https://vitalyswipe-tinymvc.local/authorization">Sing in!</a>';
+
         }
-    } else {
-        echo 'Please sing-in'; 
-        
-    }
-
-
     echo '<br><hr>';
     echo '</div>';
-    
     }
     ?>
 </div>

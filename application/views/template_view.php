@@ -10,6 +10,13 @@
 	</head>
 	<body>
 
+	<ul>
+  <li><a href="https://vitalyswipe-tinymvc.local/comment">Comment</a></li>
+  <li><a href="https://vitalyswipe-tinymvc.local/authorization">Sing in</a></li>
+  <li><a href="https://vitalyswipe-tinymvc.local/registration">Create account</a></li>
+  <li><a href="">Sing out</a></li>
+	</ul>
+
 		<?php include 'application/views/'.$content_view; ?>
 	</body>
 </html>
