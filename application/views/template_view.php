@@ -9,14 +9,12 @@
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>	
 	</head>
 	<body>
-
 	<ul>
-  <li><a href="https://vitalyswipe-tinymvc.local/comment">Comment</a></li>
-  <li><a href="https://vitalyswipe-tinymvc.local/authorization">Sing in</a></li>
-  <li><a href="https://vitalyswipe-tinymvc.local/registration">Create account</a></li>
-  <li><a href="">Sing out</a></li>
+  		<li><a href="/comment">Comment</a></li>
+  		<li><a href="/authorization">Sing in</a></li>
+  		<li><a href="/registration">Create account</a></li>
+  		<li><a href="">Sing out</a></li>
 	</ul>
-
 		<?php include 'application/views/'.$content_view; ?>
 	</body>
 </html>
