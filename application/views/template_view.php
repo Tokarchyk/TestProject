@@ -12,21 +12,12 @@
   		<button type ="submit"><a href="/comment">Comment</a></button>
   		<button type ="submit"><a href="/authorization">Sing in</a></button>
   		<button type ="submit"><a href="/registration">Create account</a></button>
-  	<form action="/authorization/logout" method="POST">
+  		<form action="/authorization/logout" method="POST">
 		<button name="logout_btn" type="submit" value="logout">Sing out</button>
-	</form>
+		</form>
 		<?php include 'application/views/'.$content_view; ?>
 	</body>
 </html>
-
-
-
-
-
-
-
-
-
 
 <style>
   /* Bordered form */

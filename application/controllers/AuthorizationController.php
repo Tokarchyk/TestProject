@@ -72,6 +72,7 @@ class AuthorizationController extends Controller
             echo "No user found with this login.";
         }
     }
+    
      public function action_logout()
     {
         session_start();
