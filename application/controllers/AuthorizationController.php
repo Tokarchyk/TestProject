@@ -8,6 +8,7 @@ use App\Models\AuthorizationModel;
 use App\Core\View;
 use App\Core\Database;
 use \PDO;
+session_start();
 
 class AuthorizationController extends Controller
 {
@@ -35,8 +36,6 @@ class AuthorizationController extends Controller
         );
 	}
 
-    
-
     public function action_hashing() 
     {
         session_start();
@@ -51,10 +50,6 @@ class AuthorizationController extends Controller
         $stmt->bindParam(':email', $login, PDO::PARAM_STR);
         $stmt->execute();
         
-        
-
-        
-
         if ($stmt->rowCount() > 0) {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
             
@@ -76,22 +71,13 @@ class AuthorizationController extends Controller
         } else {
             echo "No user found with this login.";
         }
-        
-        
-        
-        
-        
-        // var_dump($_POST);
-        // $password = $_POST['password'];
-        // $password1 = password_hash($password, PASSWORD_DEFAULT);
-        
-        // var_dump($password1); 
-
-        // if(password_verify($password, $password1)){
-        //     var_dump('true');
-        // } else {
-        //     var_dump('false');
-        // };
+    }
+     public function action_logout()
+    {
+        session_start();
+        session_unset();
+        session_destroy();
+        header("Location:/authorization");    
     }
 }
 

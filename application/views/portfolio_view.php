@@ -8,10 +8,11 @@
 ?>
 <form onsubmit="event.preventDefault();" 
     action="/comment/store" method="POST">
-    <?php if (array_key_exists('user_email', $_SESSION) && !empty($_SESSION['user_email'])){ ?>
+    <?php 
+        if (array_key_exists('user_email', $_SESSION) && !empty($_SESSION['user_email'])){ ?>
         <label for="email">Email:</label>
-    <input type="hidden" name="user_email" value="<?php echo $_SESSION['user_email']; ?>" />
-<?php }; ?>
+        <input type="hidden" name="user_email" value="<?php echo $_SESSION['user_email']; ?>" />
+    <?php }; ?>
     <?php
         if(array_key_exists('user_email', $_SESSION) && !empty($_SESSION['user_email'])){
     ?>
