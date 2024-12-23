@@ -1,6 +1,6 @@
 <?php
   session_start();
-  
+
   if (isset($_SESSION['login_message'])) {
         echo htmlspecialchars($_SESSION['login_message']);
     // unset($_SESSION['login_message']);
@@ -8,12 +8,10 @@
 ?>
 <form onsubmit="event.preventDefault();" 
     action="/comment/store" method="POST">
-    <?php if (array_key_exists('user_email', $_SESSION) && !empty($_SESSION['user_email'])): ?>
+    <?php if (array_key_exists('user_email', $_SESSION) && !empty($_SESSION['user_email'])){ ?>
         <label for="email">Email:</label>
     <input type="hidden" name="user_email" value="<?php echo $_SESSION['user_email']; ?>" />
-<?php else: ?>
-    <input type="email" name="user_email" />
-<?php endif; ?>
+<?php }; ?>
     <?php
         if(array_key_exists('user_email', $_SESSION) && !empty($_SESSION['user_email'])){
     ?>
@@ -26,7 +24,6 @@
         Send message
     </button> 
 </form>
-
 <script>
     function getComment() {
         event.preventDefault();
